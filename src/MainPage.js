@@ -17,9 +17,12 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  {this.props.books.filter((book) => (
-                    book === "currentlyReading")
-                  )}
+
+                  {this.props.books.map((book) => (
+                    <li key= {book.id} className="displayed book">
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
