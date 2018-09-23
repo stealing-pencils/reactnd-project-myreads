@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 class MainPage extends Component {
   render() {
-    // console.log('Props', this.props)
+    // console.log(this.props)
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -17,9 +17,11 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    < Books/>
-                  </li>
+                  {this.props.books.map((book) => (
+                    <li key = {book.id}>
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
