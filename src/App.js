@@ -2,7 +2,7 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 import MainPage from './MainPage'
-import SearchPage from './SearchPage'
+import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 import { Route } from 'react-router-dom'
 
@@ -27,7 +27,7 @@ class BooksApp extends React.Component {
   render() {
     return (
       <div className="app">
-        < MainPage/>
+        < SearchBooks/>
       </div>
     )
   }
