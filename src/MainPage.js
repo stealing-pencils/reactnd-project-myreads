@@ -6,6 +6,13 @@ import { Link } from 'react-router-dom'
 class MainPage extends Component {
   render() {
     // console.log(this.props)
+    let categorizeBook
+
+
+    // {this.props.books.filter((book) => (
+    //   book === "currentlyReading")
+    // )}
+
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -17,12 +24,14 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-
-                  {this.props.books.map((book) => (
-                    <li key= {book.id} className="displayed book">
+                  {this.props.books.filter(book => (
+                    book.shelf === "currentlyReading")
+                  ).map(filteredBooks => (
+                    <li key= {filteredBooks.id} className="displayed book">
                       < Books/>
                     </li>
                   ))}
+
                 </ol>
               </div>
             </div>
