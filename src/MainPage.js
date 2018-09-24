@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Books from './Books'
 import Shelves from './Shelves'
 import SearchBooks from './SearchBooks'
 import { Link } from 'react-router-dom'
@@ -23,14 +22,14 @@ class MainPage extends Component {
               />
             </div>
             <div className="shelf_two">
-            < Shelves
-              books = {this.props.books}
-            />
+              < Shelves
+                books = {this.props.books}
+              />
             </div>
             <div className="shelf_three">
-            < Shelves
-              books = {this.props.books}
-            />
+              < Shelves
+                books = {this.props.books}
+              />
             </div>
           </div>
         </div>
