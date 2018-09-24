@@ -24,7 +24,6 @@ class MainPage extends Component {
                       < Books/>
                     </li>
                   ))}
-
                 </ol>
               </div>
             </div>
@@ -32,9 +31,13 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    < Books/>
-                  </li>
+                  {this.props.books.filter(book => (
+                    book.shelf === "wantToRead")
+                  ).map(filteredBooks => (
+                    <li key= {filteredBooks.id} className="displayed book">
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
@@ -42,9 +45,13 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    < Books/>
-                  </li>
+                  {this.props.books.filter(book => (
+                    book.shelf === "read")
+                  ).map(filteredBooks => (
+                    <li key= {filteredBooks.id} className="displayed book">
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
