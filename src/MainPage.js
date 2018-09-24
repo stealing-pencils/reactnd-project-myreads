@@ -7,7 +7,9 @@ import { Link } from 'react-router-dom'
 
 class MainPage extends Component {
   render() {
-    console.log(this.props)
+    const { books } = this.props
+    console.log(books)
+
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -16,13 +18,19 @@ class MainPage extends Component {
         <div className="list-books-content">
           <div>
             <div className="shelf_one">
-              < Shelves/>
+              < Shelves
+                books = {this.props.books}
+              />
             </div>
             <div className="shelf_two">
-              < Shelves/>
+            < Shelves
+              books = {this.props.books}
+            />
             </div>
             <div className="shelf_three">
-              < Shelves/>
+            < Shelves
+              books = {this.props.books}
+            />
             </div>
           </div>
         </div>

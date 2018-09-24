@@ -5,6 +5,7 @@ import Books from './Books'
 class Shelves extends Component {
   render () {
     console.log("here are the shelves")
+    // console.log(this.props.books)
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">Currently Reading</h2>
@@ -12,8 +13,8 @@ class Shelves extends Component {
           <ol className="books-grid">
             {this.props.books.filter(book => (
               book.shelf === "currentlyReading")
-            ).map(filteredBooks => (
-              <li key= {filteredBooks.id} className="displayed book">
+            ).map(book => (
+              <li key= {book.id} className="displayed book">
                 < Books/>
               </li>
             ))}
