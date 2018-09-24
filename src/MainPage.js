@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 class MainPage extends Component {
   render() {
+    console.log(this.props)
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -17,9 +18,13 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    < Books/>
-                  </li>
+                  {this.props.books.filter(book => (
+                    book.shelf === "currentlyReading")
+                  ).map(filteredBooks => (
+                    <li key= {filteredBooks.id} className="displayed book">
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
@@ -27,9 +32,13 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Want to Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    < Books/>
-                  </li>
+                  {this.props.books.filter(book => (
+                    book.shelf === "wantToRead")
+                  ).map(filteredBooks => (
+                    <li key= {filteredBooks.id} className="displayed book">
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
@@ -37,9 +46,13 @@ class MainPage extends Component {
               <h2 className="bookshelf-title">Read</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
-                  <li>
-                    < Books/>
-                  </li>
+                  {this.props.books.filter(book => (
+                    book.shelf === "read")
+                  ).map(filteredBooks => (
+                    <li key= {filteredBooks.id} className="displayed book">
+                      < Books/>
+                    </li>
+                  ))}
                 </ol>
               </div>
             </div>
