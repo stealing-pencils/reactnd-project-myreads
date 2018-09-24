@@ -7,7 +7,7 @@ class Shelves extends Component {
 
   render () {
     // console.log("here are the shelves")
-    // console.log(this.props.books)
+    console.log(this.props.books)
     return (
       <div className="bookshelf">
         <h2 className="bookshelf-title">Currently Reading</h2>
