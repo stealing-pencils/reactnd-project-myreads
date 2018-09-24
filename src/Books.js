@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import MainPage from './MainPage'
-
-
-
 
 
 class Books extends Component {

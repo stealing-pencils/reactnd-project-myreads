@@ -15,47 +15,14 @@ class MainPage extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <div className="bookshelf">
-              <h2 className="bookshelf-title">Currently Reading</h2>
-              <div className="bookshelf-books">
-                <ol className="books-grid">
-                  {this.props.books.filter(book => (
-                    book.shelf === "currentlyReading")
-                  ).map(filteredBooks => (
-                    <li key= {filteredBooks.id} className="displayed book">
-                      < Books/>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+            <div className="shelf_one">
+              < Shelves/>
             </div>
-            <div className="bookshelf">
-              <h2 className="bookshelf-title">Want to Read</h2>
-              <div className="bookshelf-books">
-                <ol className="books-grid">
-                  {this.props.books.filter(book => (
-                    book.shelf === "wantToRead")
-                  ).map(filteredBooks => (
-                    <li key= {filteredBooks.id} className="displayed book">
-                      < Books/>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+            <div className="shelf_two">
+              < Shelves/>
             </div>
-            <div className="bookshelf">
-              <h2 className="bookshelf-title">Read</h2>
-              <div className="bookshelf-books">
-                <ol className="books-grid">
-                  {this.props.books.filter(book => (
-                    book.shelf === "read")
-                  ).map(filteredBooks => (
-                    <li key= {filteredBooks.id} className="displayed book">
-                      < Books/>
-                    </li>
-                  ))}
-                </ol>
-              </div>
+            <div className="shelf_three">
+              < Shelves/>
             </div>
           </div>
         </div>
