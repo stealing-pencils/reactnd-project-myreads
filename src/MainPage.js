@@ -16,17 +16,17 @@ class MainPage extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <div className="shelf_one">
+            <div className="currentlyReading">
               < Shelves
                 books = {this.props.books}
               />
             </div>
-            <div className="shelf_two">
+            <div className="wantToRead">
               < Shelves
                 books = {this.props.books}
               />
             </div>
-            <div className="shelf_three">
+            <div className="read">
               < Shelves
                 books = {this.props.books}
               />
