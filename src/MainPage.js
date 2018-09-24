@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 class MainPage extends Component {
   render() {
     const { books } = this.props
-    console.log(books)
+    // console.log(books)
 
     return (
       <div className="list-books">
