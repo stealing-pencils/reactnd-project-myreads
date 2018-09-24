@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import MainPage from './MainPage'
+
+
+
+
 
 class Books extends Component {
   render () {
@@ -16,8 +21,8 @@ class Books extends Component {
             </select>
           </div>
         </div>
-        <div className="book-title"> /* Got rid of hard coded book title */</div>
-        <div className="book-authors">/* Got rid of hard coded book author*/</div>
+        <div className="book-title"></div>
+        <div className="book-authors"></div>
       </div>
     )
   }
