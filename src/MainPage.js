@@ -28,7 +28,6 @@ class MainPage extends Component {
                   <h2 className="bookshelf-title">
                     {this.state.shelfName[index]}
                   </h2>
-
                     < Shelves
                       books = {this.props.books}
                       index = {index}
