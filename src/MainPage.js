@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 class MainPage extends Component {
 
   state = {
-    shelfName: ["Currently Reading", "Want To Read", "Read"]
+    shelfName: ["Currently Reading", "Want to Read", "Read"],
+    findShelf: ["currentlyReading", "wantToRead", "read"],
   }
 
   render() {
@@ -27,8 +28,11 @@ class MainPage extends Component {
                   <h2 className="bookshelf-title">
                     {this.state.shelfName[index]}
                   </h2>
+
                     < Shelves
                       books = {this.props.books}
+                      shelf = {shelf}
+                      index = {index}
                     />
                 </div>
               </div>

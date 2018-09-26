@@ -4,10 +4,9 @@ import Books from './Books'
 
 class Shelves extends Component {
 
-
-
-
-// this.state.shelfName.map(shelfNam => <Shelf shelfName={shelfName} key={shelfName} books={this.state.books.filter(book => book.shelf === shelfName)} />)
+  state = {
+    findShelf: ["currentlyReading", "wantToRead", "read"]
+  }
 
   render () {
 
@@ -15,7 +14,7 @@ class Shelves extends Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.filter(book => (
-              book.shelf === "currentlyReading")
+              book.shelf === `${this.state.findShelf[this.props.index]}`)
             ).map(book => (
               <li key= {book.id} className="displayed book">
                 < Books
