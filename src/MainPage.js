@@ -21,11 +21,16 @@ class MainPage extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            {this.state.shelfName.map(shelf => (
-              <div key={shelf.index} className="shelf1">
-                < Shelves
-                  books = {this.props.books}
-                />
+            {this.state.shelfName.map((shelf, index) => (
+              <div key={shelf.index} className="shelf">
+                <div className="bookshelf">
+                  <h2 className="bookshelf-title">
+                    {this.state.shelfName[index]}
+                  </h2>
+                    < Shelves
+                      books = {this.props.books}
+                    />
+                </div>
               </div>
             ))}
           </div>
