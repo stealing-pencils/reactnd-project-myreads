@@ -31,7 +31,6 @@ class MainPage extends Component {
 
                     < Shelves
                       books = {this.props.books}
-                      shelf = {shelf}
                       index = {index}
                     />
                 </div>

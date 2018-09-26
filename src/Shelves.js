@@ -9,7 +9,6 @@ class Shelves extends Component {
   }
 
   render () {
-
     return (
         <div className="bookshelf-books">
           <ol className="books-grid">
