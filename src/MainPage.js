@@ -22,7 +22,7 @@ class MainPage extends Component {
         <div className="list-books-content">
           <div>
             {this.state.shelfName.map((shelf, index) => (
-              <div key={shelf.index} className="shelf">
+              <div key={[index]} className="shelf">
                 <div className="bookshelf">
                   <h2 className="bookshelf-title">
                     {this.state.shelfName[index]}

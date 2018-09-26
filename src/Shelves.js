@@ -12,19 +12,19 @@ class Shelves extends Component {
   render () {
 
     return (
-      <div className="bookshelf-books">
-        <ol className="books-grid">
-          {this.props.books.filter(book => (
-            book.shelf === "currentlyReading")
-          ).map(book => (
-            <li key= {book.id} className="displayed book">
-              < Books
-                book = {book}
-              />
-            </li>
-          ))}
-        </ol>
-      </div>
+        <div className="bookshelf-books">
+          <ol className="books-grid">
+            {this.props.books.filter(book => (
+              book.shelf === "currentlyReading")
+            ).map(book => (
+              <li key= {book.id} className="displayed book">
+                < Books
+                  book = {book}
+                />
+              </li>
+            ))}
+          </ol>
+        </div>
     )
   }
 }
