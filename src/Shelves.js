@@ -5,12 +5,18 @@ import Books from './Books'
 class Shelves extends Component {
 
 
+
+
+// this.state.shelfName.map(shelfNam => <Shelf shelfName={shelfName} key={shelfName} books={this.state.books.filter(book => book.shelf === shelfName)} />)
+
   render () {
-    // console.log("here are the shelves")
-    console.log(this.props.books)
+
     return (
       <div className="bookshelf">
-        <h2 className="bookshelf-title">Currently Reading</h2>
+
+        <h2 className="bookshelf-title">
+          placeholder
+        </h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.filter(book => (

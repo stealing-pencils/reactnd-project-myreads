@@ -5,9 +5,14 @@ import { Link } from 'react-router-dom'
 
 
 class MainPage extends Component {
+
+  state = {
+    shelfName: ["Currently Reading", "Want To Read", "Read"]
+  }
+
   render() {
-    const { books } = this.props
-    // console.log(books)
+    // const { books } = this.props
+    // console.log(this.state.shelfNames)
 
     return (
       <div className="list-books">
@@ -16,21 +21,13 @@ class MainPage extends Component {
         </div>
         <div className="list-books-content">
           <div>
-            <div className="currentlyReading">
-              < Shelves
-                books = {this.props.books}
-              />
-            </div>
-            <div className="wantToRead">
-              < Shelves
-                books = {this.props.books}
-              />
-            </div>
-            <div className="read">
-              < Shelves
-                books = {this.props.books}
-              />
-            </div>
+            {this.state.shelfName.map(shelf => (
+              <div key={shelf.index} className="shelf1">
+                < Shelves
+                  books = {this.props.books}
+                />
+              </div>
+            ))}
           </div>
         </div>
         <div className="open-search">
