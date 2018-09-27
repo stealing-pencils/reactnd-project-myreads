@@ -7,18 +7,21 @@ class Shelves extends Component {
   state = {
     findShelf: ["currentlyReading", "wantToRead", "read"]
   }
-
+  
   render () {
-    console.log(this.props.books)
+    let thisShelf = this.state.findShelf[this.props.index]
+
     return (
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.filter(book => (
-              book.shelf === `${this.state.findShelf[this.props.index]}`)
+              book.shelf === thisShelf)
             ).map(book => (
               <li key= {book.id} className="displayed book">
                 < Books
                   book = {book}
+                  books = {this.props.books}
+                  changeBookShelf = {this.props.changeBookShelf}
                 />
               </li>
             ))}

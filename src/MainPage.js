@@ -12,8 +12,6 @@ class MainPage extends Component {
   }
 
   render() {
-    // const { books } = this.props
-    // console.log(this.state.shelfNames)
 
     return (
       <div className="list-books">
@@ -33,6 +31,7 @@ class MainPage extends Component {
                       books = {this.props.books}
                       shelf = {shelf}
                       index = {index}
+                      changeBookShelf = {this.props.changeBookShelf}
                     />
                 </div>
               </div>
