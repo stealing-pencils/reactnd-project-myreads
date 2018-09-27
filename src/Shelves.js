@@ -7,8 +7,9 @@ class Shelves extends Component {
   state = {
     findShelf: ["currentlyReading", "wantToRead", "read"]
   }
-  
+
   render () {
+
     let thisShelf = this.state.findShelf[this.props.index]
 
     return (
