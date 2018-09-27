@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 
 class Books extends Component {
 
+  state = {
+    selectedValue: "default"
+  }
+
   render () {
 
     return (
@@ -11,15 +15,16 @@ class Books extends Component {
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")`}}></div>
           <div className="book-shelf-changer">
             <select
+              value = {this.state.selectedValue}
               onChange = {(event) => (
                 this.props.changeBookShelf(this.props.book, event.target.value)
               )}
               >
-                <option value="move" disabled>Move to...</option>
+                <option value={"default"} disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
-                // <option value="none">None</option>
+                <option value="none">None</option>
             </select>
           </div>
         </div>
