@@ -26,6 +26,11 @@ class BooksApp extends React.Component {
     })
   )
 
+  searchBooks= (query) => {
+    BooksAPI.search(query)
+  }
+
+
   render() {
     return (
       <div className="app">
@@ -35,7 +40,11 @@ class BooksApp extends React.Component {
             changeBookShelf={this.changeBookShelf}
           />
         )}/>
-        <Route path="/SearchBooks" component={ SearchBooks }/>
+        <Route path="/SearchBooks" render={() => (
+          < SearchBooks
+            searchBooks={this.searchBooks}
+          />
+        )}/>
       </div>
     )
   }

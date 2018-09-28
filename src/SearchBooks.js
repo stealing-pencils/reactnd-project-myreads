@@ -5,12 +5,10 @@ import serializeForm from 'form-serialize'
 
 class SearchPage extends Component {
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-    const values = searlizeForm(e.target,
-      {hash: true})
-      
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   const values = searlizeForm(e.target, {hash: true})
+  // }
 
   render () {
     return (
