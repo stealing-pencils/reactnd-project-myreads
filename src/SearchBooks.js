@@ -5,6 +5,9 @@ import serializeForm from 'form-serialize'
 
 class SearchPage extends Component {
 
+  state = {
+    query: ''
+  }
   // handleSubmit = (e) => {
   //   e.preventDefault()
   //   const values = searlizeForm(e.target, {hash: true})
@@ -26,7 +29,11 @@ class SearchPage extends Component {
             */}
             <form onSubmit={this.handleSubmit}
               className="search books">
-              <input type="text" placeholder="Search by title or author"/>
+              <input
+              type="text"
+              placeholder="Search by title or author"
+              onChange={(event) => this.props.searchBooks(event.target.value)}
+              />
             </form>
 
           </div>
