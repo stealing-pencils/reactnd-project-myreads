@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import serializeForm from 'form-serialize'
+import escapeRegExp from 'escape-string-regexp'
+import sortBy from 'sort-by'
 
 
 class SearchPage extends Component {
@@ -8,6 +10,12 @@ class SearchPage extends Component {
   state = {
     query: ''
   }
+
+  updateQuery = (query) => {
+    this.setState({query:query.trim()})
+    this.props.searchBooks(query)
+  }
+
   // handleSubmit = (e) => {
   //   e.preventDefault()
   //   const values = searlizeForm(e.target, {hash: true})
@@ -32,7 +40,7 @@ class SearchPage extends Component {
               <input
               type="text"
               placeholder="Search by title or author"
-              onChange={(event) => this.props.searchBooks(event.target.value)}
+              onChange={(event) => this.updateQuery(event.target.value)}
               />
             </form>
 
