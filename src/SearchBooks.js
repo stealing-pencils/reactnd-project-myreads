@@ -13,7 +13,7 @@ class SearchPage extends Component {
 
   updateQuery = (query) => {
     this.setState({query:query.trim()})
-    this.props.searchBooks(query)
+    // this.props.searchBooks(query)
   }
 
   // handleSubmit = (e) => {
@@ -22,6 +22,17 @@ class SearchPage extends Component {
   // }
 
   render () {
+
+    // let showBooks;
+    //
+    // if(this.state.query) {
+    //   const match = new RegExp(escapeRegExp(this.state.query))
+    //   showBooks = this.props.books.filter((searchedBook) => match.test(searchedBook.name))
+    //
+    // } else {
+    //   showBooks = this.props.books
+    // }
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
@@ -35,14 +46,15 @@ class SearchPage extends Component {
               However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
               you don't find a specific author or title. Every search is limited by search terms.
             */}
-            <form onSubmit={this.handleSubmit}
-              className="search books">
+
               <input
+              className="search books"
               type="text"
               placeholder="Search by title or author"
+              value={this.state.query}
               onChange={(event) => this.updateQuery(event.target.value)}
               />
-            </form>
+
 
           </div>
         </div>
