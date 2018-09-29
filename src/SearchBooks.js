@@ -32,15 +32,16 @@ class SearchPage extends Component {
 
   render () {
 
-    // let showBooks;
-    //
-    // if(this.state.query) {
-    //   const match = new RegExp(escapeRegExp(this.state.query))
-    //   showBooks = this.props.books.filter((searchedBook) => match.test(searchedBook.name))
-    //
-    // } else {
-    //   showBooks = this.props.books
-    // }
+    let showBooks;
+
+    if(this.state.query) {
+      // const match = new RegExp(escapeRegExp(this.state.query))
+      // showBooks = this.props.books.filter((searchedBook) => match.test(searchedBook.name))
+      showBooks = this.searchBooks(this.state.query)
+
+    } else {
+      showBooks = this.props.books
+    }
 
     return (
       <div className="search-books">
