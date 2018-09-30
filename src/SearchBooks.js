@@ -31,7 +31,6 @@ class SearchPage extends Component {
   // }
 
   render () {
-
     let showBooks;
 
     if(this.state.query) {
@@ -40,7 +39,7 @@ class SearchPage extends Component {
       showBooks = this.searchBooks(this.state.query)
 
     } else {
-      showBooks = this.props.books
+      showBooks = this.state.query
     }
 
     return (
@@ -59,7 +58,6 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.query}
             {this.state.bookResults.map((book) => (
               <li key = {book.id} className = "returned search books">
               < Books
