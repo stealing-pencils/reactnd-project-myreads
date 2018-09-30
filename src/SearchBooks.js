@@ -20,6 +20,9 @@ class SearchPage extends Component {
 
   searchBooks = (query) => {
     BooksAPI.search(query.trim()).then((bookResults) => {
+      if( bookResults.error ) {
+        this.setState({ bookResults : [] })
+      } else {
         this.setState({ bookResults : bookResults })
       }
     })
