@@ -32,7 +32,7 @@ class SearchPage extends Component {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
       // showBooks = this.props.books.filter((searchedBook) => match.test(searchedBook.name))
       showBooks = this.searchBooks(this.state.query)
-      this.state.bookResults.filter((book) => match.test(book.name || book.authors))
+      // this.state.bookResults.filter((book) => match.test(book.name))
 
     } else {
       // showBooks = this.setState( { bookResults : [] } )
