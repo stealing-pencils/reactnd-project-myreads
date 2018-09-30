@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 
-
 class Books extends Component {
 
   state = {
@@ -42,7 +41,6 @@ class Books extends Component {
       </div>
     )
   }
-
 }
 
 export default Books;

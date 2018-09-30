@@ -32,6 +32,4 @@ class Shelves extends Component {
   }
 }
 
-
-
 export default Shelves;
