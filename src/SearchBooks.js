@@ -19,7 +19,7 @@ class SearchPage extends Component {
   }
 
   searchBooks = (query) => {
-    BooksAPI.search(query.trim()).then((bookResults) => {
+    BooksAPI.search(query).then((bookResults) => {
       if( bookResults.error ) {
         this.setState({ bookResults : [] })
       } else {
@@ -31,6 +31,7 @@ class SearchPage extends Component {
   render () {
 
     let showBooks;
+    let filterBooks;
 
     if(this.state.query) {
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
