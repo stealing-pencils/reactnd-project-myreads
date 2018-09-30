@@ -25,21 +25,17 @@ class SearchPage extends Component {
     })
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   const values = searlizeForm(e.target, {hash: true})
-  // }
-
   render () {
     let showBooks;
 
     if(this.state.query) {
-      // const match = new RegExp(escapeRegExp(this.state.query))
+      const match = new RegExp(escapeRegExp(this.state.query), 'i')
       // showBooks = this.props.books.filter((searchedBook) => match.test(searchedBook.name))
       showBooks = this.searchBooks(this.state.query)
+      this.state.bookResults.filter((book) => match.test(book.name || book.authors))
 
     } else {
-      showBooks = this.state.query
+      // showBooks = this.setState( { bookResults : [] } )
     }
 
     return (
