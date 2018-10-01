@@ -9,10 +9,7 @@ class Books extends Component {
 
   render () {
 
-    // let bookStyleReady = (checkProps) => {
-    //   this.props.book ? this.props.book.imageLinks.thumbnail :
-    //   ''
-    // }
+    console.log(this.props.books)
 
     let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
 

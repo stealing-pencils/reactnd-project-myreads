@@ -16,28 +16,25 @@ class SearchPage extends Component {
 
   updateQuery = (query) => {
     this.setState({ query : query })
+    this.searchBooks(query)
   }
 
   searchBooks = (query) => {
-    BooksAPI.search(query.trim()).then((bookResults) => {
-      if( bookResults.error ) {
-        this.setState({ bookResults : [] })
-      } else {
-        this.setState({ bookResults : bookResults })
-      }
-    })
+    if(this.state.query) {
+      const match = new RegExp(escapeRegExp(this.state.query), 'i')
+      BooksAPI.search(query.trim()).then((bookResults) => {
+        if( bookResults.error ) {
+          this.setState({ booksResults : [] })
+        } else {
+          this.setState({ bookResults : bookResults })
+        }
+      })
+    } else {
+      this.setState({ bookResults : [] })
+    }
   }
 
   render () {
-
-    let showBooks;
-
-    if(this.state.query) {
-      const match = new RegExp(escapeRegExp(this.state.query), 'i')
-      showBooks = this.searchBooks(this.state.query)
-    } else {
-      this.state.bookResults = []
-    }
 
     return (
       <div className="search-books">
