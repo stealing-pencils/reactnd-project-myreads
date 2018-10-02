@@ -47,27 +47,15 @@ class SearchPage extends Component {
     let mainPageIds = []
 
     this.props.books.map((book) => {
-      // console.log(book.id)
       mainPageIds.push(book.id)
     })
 
     this.state.bookResults.map((bookResultsBook) => {
-      mainPageIds.map((mainBook) => {
-        if(bookResultsBook.id == mainBook) {
-          console.log(bookResultsBook)
-        } else {
-          console.log("no match")
-        }
+      mainPageIds.filter((mainBook) => {
+        if(bookResultsBook.id === mainBook)
+        console.log(mainBook)
       })
     })
-
-
-
-
-
-
-
-
 
 
     // let findMainPage_bookIds = function() {
