@@ -11,13 +11,19 @@ class SearchPage extends Component {
 
   state = {
     query: '',
-    bookResults: []
+    bookResults: [],
+    mainPageBookIds: []
   }
 
   updateQuery = (query) => {
     this.setState({ query : query })
     this.searchBooks(this.state.query)
   }
+
+//TO DO:  clearQuery = () => {
+  //   this.setState({ query: ''})
+  // }
+
 
   searchBooks = (query) => {
     if(query) {
@@ -26,6 +32,7 @@ class SearchPage extends Component {
         if( bookResults.error ) {
           this.setState({ booksResults : [] })
         } else {
+          // this.findIds(bookResults)
           this.setState({ bookResults : bookResults })
         }
       })
@@ -34,7 +41,45 @@ class SearchPage extends Component {
     }
   }
 
+
   render () {
+
+    let mainPageIds = []
+
+    this.props.books.map((book) => {
+      // console.log(book.id)
+      mainPageIds.push(book.id)
+    })
+
+    this.state.bookResults.map((bookResultsBook) => {
+      mainPageIds.map((mainBook) => {
+        if(bookResultsBook.id == mainBook) {
+          console.log(bookResultsBook)
+        } else {
+          console.log("no match")
+        }
+      })
+    })
+
+
+
+
+
+
+
+
+
+
+    // let findMainPage_bookIds = function() {
+    //   this.props.books.map((book) => {
+    //     console.log(book.id)
+    //   })
+    // }
+
+
+
+    // console.log(mainPageIds)
+
 
     return (
       <div className="search-books">
@@ -57,7 +102,6 @@ class SearchPage extends Component {
               < Books
                 book = {book}
                 books = {this.props.books}
-                changeBookShelf = {this.props.changeBookShelf}
               />
               </li>
             ))}

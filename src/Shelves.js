@@ -10,13 +10,13 @@ class Shelves extends Component {
 
   render () {
 
-    let thisShelf = this.state.findShelf[this.props.index]
+    let bookShelf = this.state.findShelf[this.props.index]
 
     return (
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.filter(book => (
-              book.shelf === thisShelf)
+              book.shelf === bookShelf)
             ).map(book => (
               <li key= {book.id} className="displayed book">
                 < Books

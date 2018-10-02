@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
+import serializeForm from 'form-serialize'
 
 
 class Books extends Component {
 
   state = {
-    selectedValue: "default"
+    selectedValue: this.props.book.shelf,
+    noShelf: "none"
   }
+
+
+
+
 
   render () {
 
@@ -18,7 +24,7 @@ class Books extends Component {
             backgroundImage: `url("${bookStyleReady}")`}}></div>
           <div className="book-shelf-changer">
             <select
-              value = {this.state.selectedValue}
+              value = {this.state.selectedShelf}
               onChange = {(event) => (
                 this.props.changeBookShelf(this.props.book, event.target.value)
               )}
@@ -27,7 +33,7 @@ class Books extends Component {
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
                 <option value="read">Read</option>
-                <option value="none">None</option>
+                <option value={"none"}>None</option>
             </select>
           </div>
         </div>
