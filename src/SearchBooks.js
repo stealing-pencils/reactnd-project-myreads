@@ -34,6 +34,7 @@ class SearchPage extends Component {
         } else {
           // this.findIds(bookResults)
           this.setState({ bookResults : bookResults })
+          // hasShelf()
         }
       })
     } else {
@@ -42,31 +43,23 @@ class SearchPage extends Component {
   }
 
 
+  // hasShelf = () => {
+  //   this.state.bookResults.map((bookResultsBook) => {
+  //     this.props.books.filter((mainBook) => {
+  //       if(bookResultsBook.id === mainBook.id)
+  //       console.log(mainBook)
+  //     })
+  //   })
+  // }
+
   render () {
 
-    let mainPageIds = []
-
-    this.props.books.map((book) => {
-      mainPageIds.push(book.id)
-    })
-
     this.state.bookResults.map((bookResultsBook) => {
-      mainPageIds.filter((mainBook) => {
-        if(bookResultsBook.id === mainBook)
+      this.props.books.filter((mainBook) => {
+        if(bookResultsBook.id === mainBook.id)
         console.log(mainBook)
       })
     })
-
-
-    // let findMainPage_bookIds = function() {
-    //   this.props.books.map((book) => {
-    //     console.log(book.id)
-    //   })
-    // }
-
-
-
-    // console.log(mainPageIds)
 
 
     return (
@@ -88,8 +81,11 @@ class SearchPage extends Component {
             {this.state.bookResults.map((book) => (
               <li key = {book.id} className = "returned search books">
               < Books
+
                 book = {book}
-                books = {this.props.books}
+                bookWithShelg = {this.mainBook}
+                // books = {this.props.books}
+
               />
               </li>
             ))}

@@ -9,6 +9,8 @@ class Shelves extends Component {
   }
 
   render () {
+    // console.log(this.props.book)
+    // console.log(this.props.book)
 
     let bookShelf = this.state.findShelf[this.props.index]
 
