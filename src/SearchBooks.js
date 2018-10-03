@@ -54,12 +54,13 @@ class SearchPage extends Component {
 
   render () {
 
-    this.state.bookResults.map((bookResultsBook) => {
-      this.props.books.filter((mainBook) => {
-        if(bookResultsBook.id === mainBook.id)
-        console.log(mainBook)
-      })
-    })
+
+    // this.state.bookResults.map((bookResultsBook) => {
+    //   this.props.books.filter((mainPageBook) => {
+    //     if(bookResultsBook.id === mainPageBook.id)
+    //     console.log(mainPageBook)
+    //   })
+    // })
 
 
     return (
@@ -83,7 +84,9 @@ class SearchPage extends Component {
               < Books
 
                 book = {book}
-                bookWithShelg = {this.mainBook}
+                changeBookShelf={this.props.changeBookShelf}
+
+                // mainPageBook = {this.mainPageBook}
                 // books = {this.props.books}
 
               />

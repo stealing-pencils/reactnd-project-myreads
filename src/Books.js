@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import serializeForm from 'form-serialize'
 
 
+
 class Books extends Component {
 
   state = {
@@ -12,12 +13,10 @@ class Books extends Component {
 
 
 
-
   render () {
     let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
 
-    // console.log(this.props.book)
-    console.log(this.props.mainBook)
+    // console.log(this.props.mainPageBook.shelf)
 
 
     return (
