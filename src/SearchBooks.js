@@ -32,9 +32,8 @@ class SearchPage extends Component {
         if( bookResults.error ) {
           this.setState({ booksResults : [] })
         } else {
-          // this.findIds(bookResults)
           this.setState({ bookResults : bookResults })
-          // hasShelf()
+          this.checkForShelf( this.state.bookResults )
         }
       })
     } else {
@@ -42,33 +41,32 @@ class SearchPage extends Component {
     }
   }
 
+  checkForShelf = ( onScreenBooks ) => {
+    onScreenBooks.map((bookResultsBook) => {
+      this.props.books.filter((mainPageBook) => {
+        if(bookResultsBook.id === mainPageBook.id){
+          if(this.state.hasShelf.includes(mainPageBook)){
+            console.log("has one already")
+            console.log(this.state.hasShelf)
+          } else {
+            console.log("had to push")
+            // this.setState({ hasShelf : mainPageBook })
+            this.state.hasShelf.push(mainPageBook)
+            console.log(this.state.hasShelf)
+          }
+        } else {
+          console.log("no go")
+        }
+      })
+    })
+  }
 
 
 
   render () {
 
 
-    this.state.bookResults.map((bookResultsBook) => {
-      this.props.books.filter((mainPageBook) => {
-        if(bookResultsBook.id === mainPageBook.id){
-          if(this.state.hasShelf.includes(mainPageBook)){
-            console.log("has one already")
-            console.log(this.state.hasShelf)
 
-          } else {
-            console.log("had to push")
-            this.state.hasShelf.push(mainPageBook)
-            console.log(this.state.hasShelf)
-          }
-
-        } else {
-          console.log("no go")
-        }
-
-        // console.log(mainPageBook)
-      })
-
-    })
 
 
     return (
@@ -92,7 +90,8 @@ class SearchPage extends Component {
               < Books
                 book = {book}
                 changeBookShelf={this.props.changeBookShelf}
-                mainPageBook = {this.mainPageBook}
+                hasShelf = {this.state.hasShelf}
+                // mainPageBook = {this.mainPageBook}
               />
               </li>
             ))}
