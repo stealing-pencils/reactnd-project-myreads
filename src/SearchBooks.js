@@ -12,7 +12,7 @@ class SearchPage extends Component {
   state = {
     query: '',
     bookResults: [],
-    mainPageBookIds: []
+    hasShelf: []
   }
 
   updateQuery = (query) => {
@@ -43,24 +43,32 @@ class SearchPage extends Component {
   }
 
 
-  // hasShelf = () => {
-  //   this.state.bookResults.map((bookResultsBook) => {
-  //     this.props.books.filter((mainBook) => {
-  //       if(bookResultsBook.id === mainBook.id)
-  //       console.log(mainBook)
-  //     })
-  //   })
-  // }
+
 
   render () {
 
 
-    // this.state.bookResults.map((bookResultsBook) => {
-    //   this.props.books.filter((mainPageBook) => {
-    //     if(bookResultsBook.id === mainPageBook.id)
-    //     console.log(mainPageBook)
-    //   })
-    // })
+    this.state.bookResults.map((bookResultsBook) => {
+      this.props.books.filter((mainPageBook) => {
+        if(bookResultsBook.id === mainPageBook.id){
+          if(this.state.hasShelf.includes(mainPageBook)){
+            console.log("has one already")
+            console.log(this.state.hasShelf)
+
+          } else {
+            console.log("had to push")
+            this.state.hasShelf.push(mainPageBook)
+            console.log(this.state.hasShelf)
+          }
+
+        } else {
+          console.log("no go")
+        }
+
+        // console.log(mainPageBook)
+      })
+
+    })
 
 
     return (
@@ -82,13 +90,9 @@ class SearchPage extends Component {
             {this.state.bookResults.map((book) => (
               <li key = {book.id} className = "returned search books">
               < Books
-
                 book = {book}
                 changeBookShelf={this.props.changeBookShelf}
-
-                // mainPageBook = {this.mainPageBook}
-                // books = {this.props.books}
-
+                mainPageBook = {this.mainPageBook}
               />
               </li>
             ))}

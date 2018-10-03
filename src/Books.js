@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import serializeForm from 'form-serialize'
+import * as BooksAPI from './BooksAPI'
 
 
 
@@ -11,13 +12,15 @@ class Books extends Component {
   }
 
 
-
-
   render () {
     let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
 
-    // console.log(this.props.mainPageBook.shelf)
 
+    // console.log(this.props.mainPageBook)
+    //
+    // this.props.mainPageBook.map((book, index) => {
+    //   console.log(book[index])
+    // })
 
     return (
       <div className="book">
