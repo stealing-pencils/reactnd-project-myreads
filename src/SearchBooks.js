@@ -74,7 +74,7 @@ class SearchPage extends Component {
               this.props.books.filter((mainPageBook) => {
                 if(searchBook.id === mainPageBook.id){
                   updateShelf = mainPageBook.shelf
-                  console.log(mainPageBook.title + " " + mainPageBook.title + " " + updateShelf + "YES HERE IT IS")
+                  // console.log(mainPageBook.title + " " + mainPageBook.title + " " + updateShelf + "YES HERE IT IS")
                 } else {
                   updateShelf = updateShelf
                 }
