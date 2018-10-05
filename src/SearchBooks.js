@@ -21,13 +21,13 @@ class SearchPage extends Component {
 
   searchBooks = (query) => {
     if(query) {
+      this.setState({ query : query })
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
       BooksAPI.search(query.trim()).then((bookResults) => {
         if( bookResults.error ) {
           this.setState({ booksResults : [] })
         } else {
           this.setState({ bookResults : bookResults })
-
         }
       })
     } else {
@@ -37,6 +37,8 @@ class SearchPage extends Component {
 
   setShelf = (searchBook) => {
     this.props.books.filter((mainPageBook) => {
+      // console.log(searchBook.shelf)
+      // console.log(mainPageBook.shelf)
       if(searchBook.id === mainPageBook.id){
         return mainPageBook.shelf
         console.log(mainPageBook.shelf)
@@ -58,7 +60,7 @@ class SearchPage extends Component {
             type="text"
             placeholder="Search by title or author"
             value={this.state.query}
-            onChange={(event) => this.updateQuery(event.target.value)}
+            onChange={(event) => this.searchBooks(event.target.value)}
             />
           </div>
         </div>
