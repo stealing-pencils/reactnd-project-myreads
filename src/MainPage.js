@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom'
 class MainPage extends Component {
 
   state = {
-    shelfName: ["Currently Reading", "Want to Read", "Read"]
+    shelfName: ["Currently Reading", "Want to Read", "Read"],
+    findShelf: ["currentlyReading", "wantToRead", "read"]
+
+
   }
 
   render() {

@@ -11,7 +11,7 @@ class SearchPage extends Component {
 
   state = {
     query: '',
-    bookResults: [],
+    bookResults: []
   }
 
   updateQuery = (query) => {
@@ -21,35 +21,20 @@ class SearchPage extends Component {
 
   searchBooks = (query) => {
     if(query) {
-      // console.log(query)
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
       BooksAPI.search(query.trim()).then((bookResults) => {
         if( bookResults.error ) {
-          this.setState({ booksResults : [] })
+          this.setState({ bookResults : [] })
+          console.log("got here")
         } else {
           this.setState({ bookResults : bookResults })
         }
       })
     } else {
-      // console.log("no query")
       this.setState({ bookResults : [] })
     }
   }
 
-  setShelf = (book, updateShelf) => {
-    this.props.books.filter((mainPageBook) => {
-      if(book.id === mainPageBook.id){
-        updateShelf = mainPageBook.shelf
-        console.log(mainPageBook.title + " " + mainPageBook.title + " " + updateShelf + "YES HERE IT IS")
-        return updateShelf
-      } else {
-        updateShelf = 'none'
-        console.log(updateShelf)
-        return updateShelf
-      }
-    })
-
-  }
 
   render () {
 
@@ -74,18 +59,15 @@ class SearchPage extends Component {
               this.props.books.filter((mainPageBook) => {
                 if(searchBook.id === mainPageBook.id){
                   updateShelf = mainPageBook.shelf
-                  // console.log(mainPageBook.title + " " + mainPageBook.title + " " + updateShelf + "YES HERE IT IS")
                 } else {
                   updateShelf = updateShelf
                 }
               })
-              // this.setShelf(searchBook);
               return (
                 <li key = {searchBook.id} className = "returned search books">
                 < Books
                   book = {searchBook}
                   changeBookShelf={this.props.changeBookShelf}
-                  bookResults = {this.state.bookResults}
                   updateShelf = {updateShelf}
                 />
                 </li>
