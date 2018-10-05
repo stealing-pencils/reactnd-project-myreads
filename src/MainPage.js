@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Shelves from './Shelves'
-import SearchBooks from './SearchBooks'
 import { Link } from 'react-router-dom'
 
 
@@ -9,8 +8,6 @@ class MainPage extends Component {
   state = {
     shelfName: ["Currently Reading", "Want to Read", "Read"],
     findShelf: ["currentlyReading", "wantToRead", "read"]
-
-
   }
 
   render() {

@@ -4,7 +4,6 @@ import MainPage from './MainPage'
 import SearchBooks from './SearchBooks'
 import * as BooksAPI from './BooksAPI'
 import { Route } from 'react-router-dom'
-// import Books from './Books'
 
 
 class BooksApp extends React.Component {
@@ -18,15 +17,14 @@ class BooksApp extends React.Component {
     })
   }
 
-  changeBookShelf= (book, shelf) => (
-    BooksAPI.update(book,shelf),
+  changeBookShelf= (book, shelf) => {
+    BooksAPI.update(book,shelf)
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
-  )
+  }
 
   searchBooks= (query) => {
-    BooksAPI.search(query),
     BooksAPI.search(query).then((books) => {
       this.setState({ books })
     })

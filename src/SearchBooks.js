@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import serializeForm from 'form-serialize'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 import Books from './Books'
 import * as BooksAPI from './BooksAPI'
 
@@ -21,7 +18,6 @@ class SearchPage extends Component {
 
   searchBooks = (query) => {
     if(query) {
-      const match = new RegExp(escapeRegExp(this.state.query), 'i')
       BooksAPI.search(query.trim()).then((bookResults) => {
         if( bookResults.error ) {
           this.setState({ bookResults : [] })
@@ -56,11 +52,11 @@ class SearchPage extends Component {
           <ol className="books-grid">
             {this.state.bookResults.map((searchBook) => {
               let updateShelf = 'none'
-              this.props.books.filter((mainPageBook) => {
+              this.props.books.map((mainPageBook) => {
                 if(searchBook.id === mainPageBook.id){
-                  updateShelf = mainPageBook.shelf
+                  return updateShelf = mainPageBook.shelf
                 } else {
-                  updateShelf = updateShelf
+                  return updateShelf
                 }
               })
               return (
