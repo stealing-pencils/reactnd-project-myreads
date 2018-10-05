@@ -15,7 +15,7 @@ class Books extends Component {
   render () {
     let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
 
-
+    // console.log(this.props.newBookList)
     // console.log(this.props.mainPageBook)
     //
     // this.props.mainPageBook.map((book, index) => {
