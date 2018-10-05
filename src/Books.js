@@ -15,13 +15,6 @@ class Books extends Component {
   render () {
     let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
 
-    // console.log(this.props.newBookList)
-    // console.log(this.props.mainPageBook)
-    //
-    // this.props.mainPageBook.map((book, index) => {
-    //   console.log(book[index])
-    // })
-
     return (
       <div className="book">
         <div className="book-top">
@@ -29,7 +22,7 @@ class Books extends Component {
             backgroundImage: `url("${bookStyleReady}")`}}></div>
           <div className="book-shelf-changer">
             <select
-              value = {"default"}
+              value = {this.props.updateShelf}
               onChange = {(event) => (
                 this.props.changeBookShelf(this.props.book, event.target.value)
               )}

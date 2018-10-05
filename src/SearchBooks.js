@@ -12,7 +12,6 @@ class SearchPage extends Component {
   state = {
     query: '',
     bookResults: [],
-    hasShelf: []
   }
 
   updateQuery = (query) => {
@@ -28,8 +27,7 @@ class SearchPage extends Component {
           this.setState({ booksResults : [] })
         } else {
           this.setState({ bookResults : bookResults })
-          // console.log(this.state.bookResults)
-          // this.checkForShelf( this.state.bookResults )
+
         }
       })
     } else {
@@ -37,44 +35,11 @@ class SearchPage extends Component {
     }
   }
 
-  // checkForShelf = ( onScreenBooks ) => {
-  //   let updateShelf
-  //   onScreenBooks.map((bookResultsBook) => {
-  //     this.props.books.filter((mainPageBook) => {
-  //       if(bookResultsBook.id === mainPageBook.id){
-  //         if(this.state.hasShelf.includes(mainPageBook)){
-  //           // console.log(mainPageBook.shelf)
-  //           // console.log("here at this bit")
-  //           updateShelf = mainPageBook.shelf
-  //           // console.log(updateShelf)
-  //         } else {
-  //           updateShelf = mainPageBook.shelf
-  //           // console.log(updateShelf)
-  //           // console.log("at this other bit")
-  //           // this.state.hasShelf.push(mainPageBook)
-  //           // console.log(this.state.hasShelf)
-  //         }
-  //       } else {
-  //         updateShelf = 'none'
-  //         // console.log(updateShelf)
-  //         // console.log("no go")
-  //       }
-  //     })
-  //   })
-  // }
-
-
-  // updateBookResults = (mainPageBook) => {
-  //   this.state.hasShelf.findIndex((book) => book.id ===)
-  // }
-  //   this.state.hasShelf.
-
-  // updateShelf = ()
-  setShelf = (book) => {
+  setShelf = (searchBook) => {
     this.props.books.filter((mainPageBook) => {
-      if(book.id === mainPageBook.id){
+      if(searchBook.id === mainPageBook.id){
         return mainPageBook.shelf
-        // console.log(updateShelf)
+        console.log(mainPageBook.shelf)
       } else {
         return 'none'
       }
@@ -82,15 +47,6 @@ class SearchPage extends Component {
   }
 
   render () {
-
-    let updateShelf
-
-
-    // console.log(this.state.bookResults)
-    // console.log(this.props.books)
-
-    // let updateShelf = 'none'
-
 
     return (
       <div className="search-books">
@@ -108,18 +64,20 @@ class SearchPage extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.bookResults.map((book) => (
-              this.setShelf(book),
-              <li key = {book.id} className = "returned search books">
-              < Books
-                book = {book}
-                changeBookShelf={this.props.changeBookShelf}
-                bookResults = {this.state.bookResults}
-
-                // updateShelf = {}
-              />
-              </li>
-            ))}
+            {this.state.bookResults.map((searchBook) => {
+              let updateShelf
+              this.setShelf(searchBook);
+              return (
+                <li key = {searchBook.id} className = "returned search books">
+                < Books
+                  book = {searchBook}
+                  changeBookShelf={this.props.changeBookShelf}
+                  bookResults = {this.state.bookResults}
+                  updateShelf = {updateShelf}
+                />
+                </li>
+              )
+            })}
           </ol>
         </div>
       </div>

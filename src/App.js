@@ -32,8 +32,6 @@ class BooksApp extends React.Component {
     })
   }
 
-
-
   render() {
     return (
       <div className="app">
