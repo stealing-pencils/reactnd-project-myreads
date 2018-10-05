@@ -12,6 +12,7 @@ class Shelves extends Component {
 
     let bookShelf = this.state.findShelf[this.props.index]
 
+
     return (
         <div className="bookshelf-books">
           <ol className="books-grid">

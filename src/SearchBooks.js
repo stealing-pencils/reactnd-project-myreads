@@ -21,7 +21,7 @@ class SearchPage extends Component {
 
   searchBooks = (query) => {
     if(query) {
-      this.setState({ query : query })
+      // console.log(query)
       const match = new RegExp(escapeRegExp(this.state.query), 'i')
       BooksAPI.search(query.trim()).then((bookResults) => {
         if( bookResults.error ) {
@@ -31,21 +31,24 @@ class SearchPage extends Component {
         }
       })
     } else {
+      // console.log("no query")
       this.setState({ bookResults : [] })
     }
   }
 
-  setShelf = (searchBook) => {
+  setShelf = (book, updateShelf) => {
     this.props.books.filter((mainPageBook) => {
-      // console.log(searchBook.shelf)
-      // console.log(mainPageBook.shelf)
-      if(searchBook.id === mainPageBook.id){
-        return mainPageBook.shelf
-        console.log(mainPageBook.shelf)
+      if(book.id === mainPageBook.id){
+        updateShelf = mainPageBook.shelf
+        console.log(mainPageBook.title + " " + mainPageBook.title + " " + updateShelf + "YES HERE IT IS")
+        return updateShelf
       } else {
-        return 'none'
+        updateShelf = 'none'
+        console.log(updateShelf)
+        return updateShelf
       }
     })
+
   }
 
   render () {
@@ -60,15 +63,23 @@ class SearchPage extends Component {
             type="text"
             placeholder="Search by title or author"
             value={this.state.query}
-            onChange={(event) => this.searchBooks(event.target.value)}
+            onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
             {this.state.bookResults.map((searchBook) => {
-              let updateShelf
-              this.setShelf(searchBook);
+              let updateShelf = 'none'
+              this.props.books.filter((mainPageBook) => {
+                if(searchBook.id === mainPageBook.id){
+                  updateShelf = mainPageBook.shelf
+                  console.log(mainPageBook.title + " " + mainPageBook.title + " " + updateShelf + "YES HERE IT IS")
+                } else {
+                  updateShelf = updateShelf
+                }
+              })
+              // this.setShelf(searchBook);
               return (
                 <li key = {searchBook.id} className = "returned search books">
                 < Books

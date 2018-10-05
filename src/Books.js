@@ -14,6 +14,8 @@ class Books extends Component {
 
   render () {
     let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
+    // console.log(this.props.updateShelf  + "in books component")
+    // console.log(this.props.book)
 
     return (
       <div className="book">
