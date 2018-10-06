@@ -12,8 +12,9 @@ class SearchPage extends Component {
   }
 
   updateQuery = (query) => {
-    this.setState({ query : query })
-    this.searchBooks(this.state.query)
+    this.setState({ query : query },_=> {
+      this.searchBooks(this.state.query)
+    })
   }
 
   searchBooks = (query) => {
@@ -21,8 +22,7 @@ class SearchPage extends Component {
       BooksAPI.search(query.trim()).then((bookResults) => {
         if( bookResults.error ) {
           this.setState({ bookResults : [] })
-          console.log("got here")
-        } else {
+        } else if (this.state.query === query) {
           this.setState({ bookResults : bookResults })
         }
       })
