@@ -6,11 +6,15 @@ Using Udacity's starter code, the purpose of this project is to create a functio
 ## To Start The Application
 
 <!-- * install all project dependencies with `npm install` -->
-* fork or download this repository
-* using your terminal (or equivalent), cd into the dir that this application can be found in  
-* start the development server with `npm start`
+* clone or [download](https://github.com/stealing-pencils/reactnd-project-myreads/archive/master.zip) this repository
+* using your terminal (or equivalent), cd into the directory that this application can be found in  
+* run `npm install` to install the project dependencies
+* start the application by inputting `npm start`
+* the App can be viewed in your preferred browser at `localhost:3000`
+
 
 ## The Application Includes
+
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
@@ -83,7 +87,6 @@ search(query)
 
 * query: `<String>`
 * Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
 
 
 ## Contributing
