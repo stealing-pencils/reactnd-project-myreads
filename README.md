@@ -5,7 +5,9 @@ Using Udacity's starter code, the purpose of this project is to create a functio
 
 ## To Start The Application
 
-* install all project dependencies with `npm install`
+<!-- * install all project dependencies with `npm install` -->
+* fork or download this repository
+* using your terminal (or equivalent), cd into the dir that this application can be found in  
 * start the development server with `npm start`
 
 ## The Application Includes
@@ -86,7 +88,7 @@ search(query)
 
 ## Contributing
 
-The starter code was provides by Udacity.
+The starter code was provided by Udacity.
 I used the help of:
 * [EMEA MyReads (Maeva) Walk-Thru  -  YouTube](https://www.youtube.com/watch?v=i6L2jLHV9j8)
 * [Webinar: MyReads (P6 SHORT) Sept-22 walk-thru with @RyanWaite.ProjectCoach](https://www.youtube.com/watch?v=N8bU1oWlLwY&feature=youtu.be)
