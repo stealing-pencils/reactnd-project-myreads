@@ -3,23 +3,15 @@ import React, { Component } from 'react';
 
 class Books extends Component {
 
-  state = {
-    selectedValue: this.props.book.shelf,
-    noShelf: "none"
-  }
-
-
+    
   render () {
-    let bookStyleReady = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : ''
-    // console.log(this.props.updateShelf  + "in books component")
-    // console.log(this.props.book)
-    // console.log("books component" + this.props.updateShelf)
+    let bookImageReady = this.props.book.imageLinks && this.props.book.imageLinks.thumbnail
 
     return (
       <div className="book">
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193,
-            backgroundImage: `url("${bookStyleReady}")`}}></div>
+            backgroundImage: `url("${bookImageReady}")`}}></div>
           <div className="book-shelf-changer">
             <select
               value = {this.props.updateShelf}
